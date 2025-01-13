@@ -22,7 +22,9 @@ export class AuthService {
   public currentUser = computed(() => this._currentUser()); // Señal de lectura
   public authStatus = computed(() => this._authStatus()); // Señal de lectura
 
-  constructor() {}
+  constructor() {
+    this.chechAuthStatus().subscribe();
+  }
 
   private setAuthUser(user: User, token: string): boolean {
     this._currentUser.set(user);
